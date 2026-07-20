@@ -3,4 +3,5 @@
 .git
 .vscode
 vendor
-logs/*
+logs/app.log
+logs/access.log
