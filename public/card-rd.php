@@ -8,8 +8,6 @@ use BECSP\Config;
 use BECSP\CardManager;
 use BECSP\Validator;
 use BECSP\Logger;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 $rootPath = dirname(__DIR__);
 Config::load($rootPath);
@@ -92,36 +90,53 @@ Logger::app()->info('UID 转换完成', [
     'type'    => $type,
 ]);
 
-// 内部用 Guzzle 转发 POST 请求给 card.php
-try {
-    $client = new Client([
-        'timeout'         => 5,
-        'connect_timeout' => 3,
-        'allow_redirects' => false,
-    ]);
-
-    $siteUrl = Config::siteUrl();
-    $cardUrl = $siteUrl . '/card.php';
-
-    $response = $client->request('POST', $cardUrl, [
-        'form_params' => [
-            'uid_decimal' => $uidDecimal,
-            'type'        => $type,
-        ],
-        'headers' => [
-            'User-Agent'      => 'BECSP-Internal/1.0',
-            'X-Forwarded-For' => $ipAddress,
-            'X-Source'        => $from,
-        ],
-    ]);
-
-    $statusCode = $response->getStatusCode();
-    $body       = (string) $response->getBody();
-
-    http_response_code($statusCode);
-    echo $body;
-
-} catch (GuzzleException $e) {
-    Logger::app()->error('内部 POST 请求失败: ' . $e->getMessage());
-    $errorPage('服务不可用', '卡片查询服务暂时无法响应，请稍后重试。');
-}
+$cardUrl = Config::siteUrl() . '/card.php';
+?>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在跳转...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        .redirect-box {
+            text-align: center;
+            padding: 2rem;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e0e0e0;
+            border-top-color: #1890ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+<div class="redirect-box">
+    <div class="spinner"></div>
+    <p>正在查询卡片信息，请稍候...</p>
+</div>
+<form id="autoForm" method="POST" action="<?= htmlspecialchars($cardUrl, ENT_QUOTES, 'UTF-8') ?>">
+    <input type="hidden" name="uid_decimal" value="<?= htmlspecialchars($uidDecimal, ENT_QUOTES, 'UTF-8') ?>">
+    <input type="hidden" name="type" value="<?= htmlspecialchars($type, ENT_QUOTES, 'UTF-8') ?>">
+</form>
+<script>
+    document.getElementById('autoForm').submit();
+</script>
+</body>
+</html>
+<?php
+exit;
