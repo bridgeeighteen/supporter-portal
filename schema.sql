@@ -3,12 +3,6 @@
 -- 支持 MySQL 5.7+ / MariaDB 10.3+
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS `becsp`
-    DEFAULT CHARACTER SET utf8mb4
-    DEFAULT COLLATE utf8mb4_unicode_ci;
-
-USE `becsp`;
-
 -- 卡片主表
 CREATE TABLE IF NOT EXISTS `cards` (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
