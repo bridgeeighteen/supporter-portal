@@ -22,7 +22,7 @@ $siteUrl  = Config::siteUrl();
     <header class="site-header">
         <div class="container d-flex align-items-center justify-content-between">
             <a href="/" class="site-brand">
-                <img src="/assets/images/logo.svg" alt="<?= htmlspecialchars($siteName, ENT_QUOTES, 'UTF-8') ?>" width="120" height="50">
+                <img src="/assets/images/logo.svg" alt="<?= htmlspecialchars($siteName, ENT_QUOTES, 'UTF-8') ?>" style="height:24px;width:auto;">
             </a>
         </div>
     </header>

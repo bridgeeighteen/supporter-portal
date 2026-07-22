@@ -21,6 +21,15 @@ class CardManager
         return $result ?: null;
     }
 
+    public function getCardByUidOnly(string $uidDecimal): ?array
+    {
+        $result = $this->db->get('cards', '*', [
+            'uid_decimal' => $uidDecimal,
+        ]);
+
+        return $result ?: null;
+    }
+
     public function logAccess(string $uidHex, int $type, string $from, string $ua, string $ip): void
     {
         try {

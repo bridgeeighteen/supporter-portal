@@ -68,8 +68,24 @@ try {
     $found = ($card !== null);
 
     $cardTypeLabels = Config::get('card_type_labels', []);
+    $typeMismatch = false;
+    $registeredTypeLabel = '';
+
+    if (!$found) {
+        $cardByUidOnly = $cardManager->getCardByUidOnly($uidDecimal);
+        if ($cardByUidOnly !== null) {
+            $typeMismatch = true;
+            $registeredType = (int) $cardByUidOnly['card_type'];
+            $registeredTypeLabel = $cardTypeLabels[$registeredType] ?? '未知';
+        }
+    }
+
     $typeLabel = $cardTypeLabels[$type] ?? '未知';
-    $pageTitle = $found ? '卡片详情 - ' . Config::get('site_name', 'BECSP') : '未注册 - ' . Config::get('site_name', 'BECSP');
+    if ($typeMismatch) {
+        $pageTitle = '卡片类型不一致 - ' . Config::get('site_name', 'BECSP');
+    } else {
+        $pageTitle = $found ? '卡片详情 - ' . Config::get('site_name', 'BECSP') : '未注册 - ' . Config::get('site_name', 'BECSP');
+    }
 
     ob_start();
     require __DIR__ . '/../templates/card.html.php';

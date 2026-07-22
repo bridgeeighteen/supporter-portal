@@ -3,7 +3,7 @@
         <div class="container text-center">
             <p class="footer-text">
                 Copyright &copy; 2026 The Bridge Eighteen Community.<br>
-                Software is licensed under AGPL 3.0 or any later version.
+                <a href="https://codeberg.org/bridgeeighteen/supporter-portal" target="_blank" rel="noopener">Software</a> is licensed under AGPL 3.0 or any later version.
             </p>
         </div>
     </footer>

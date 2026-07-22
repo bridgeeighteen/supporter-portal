@@ -14,7 +14,7 @@ $links = Config::get('links', []);
                 <div class="result-badge result-badge-ok">
                     <i class="bi bi-check-circle-fill"></i> 卡片已验证
                 </div>
-                <h2 class="result-title">持卡人信息</h2>
+                <h2 class="result-title">支持者卡信息</h2>
                 <div class="result-info">
                     <div class="info-row">
                         <span class="info-label">持卡人</span>
@@ -34,14 +34,25 @@ $links = Config::get('links', []);
                     </div>
                 </div>
 
+            <?php elseif ($typeMismatch): ?>
+                <div class="result-badge result-badge-no">
+                    <i class="bi bi-exclamation-circle-fill"></i> 卡片有问题
+                </div>
+                <h2 class="result-title">支持者卡类型不一致</h2>
+                <p class="result-desc">
+                    传入的卡类型与登记数据不符。<br>
+                    每位支持者仅限持有一张支持者卡，使用 UID / CUID 等复制卡卡种复制卡片的行为原则上不被允许。<br>
+                    如有特殊情况，请联系社区理事会。
+                </p>
+
             <?php else: ?>
                 <div class="result-badge result-badge-no">
-                    <i class="bi bi-exclamation-circle-fill"></i> 未注册卡片
+                    <i class="bi bi-exclamation-circle-fill"></i> 卡片有问题
                 </div>
-                <h2 class="result-title">此卡片尚未登记</h2>
+                <h2 class="result-title">此支持者卡尚未登记</h2>
                 <p class="result-desc">
-                    系统未找到此卡片的注册信息。<br>
-                    如需登记，请联系社区管理员或访问我们的支持页面。
+                    系统未找到此支持者卡的注册信息。<br>
+                    如需登记，请联系社区理事会或访问我们的支持页面。
                 </p>
             <?php endif; ?>
 

@@ -2,13 +2,13 @@
 
 use BECSP\Config;
 
+$site_name = Config::get('site_name', []);
 $links = Config::get('links', []);
 ?>
 <section class="hero-section">
     <div class="container">
         <div class="hero-card">
-            <h1 class="hero-title">十八桥社区支持者门户</h1>
-            <p class="hero-desc">Bridge Eighteen Community Supporter Portal</p>
+            <h1 class="hero-title"><?= htmlspecialchars($site_name ?? '十八桥社区支持者门户', ENT_QUOTES, 'UTF-8') ?></h1>
             <hr class="hero-divider">
             <p class="hero-text">
                 本平台用于十八桥社区支持者卡片认证与信息查询。<br>
@@ -52,20 +52,3 @@ $links = Config::get('links', []);
     </div>
 </section>
 
-<section class="links-section">
-    <div class="container">
-        <h2 class="section-title">相关链接</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-3">
-            <?php foreach ($links as $link): ?>
-            <div class="col">
-                <a href="<?= htmlspecialchars($link['url'], ENT_QUOTES, 'UTF-8') ?>"
-                   class="link-card" target="_blank" rel="noopener">
-                    <div class="link-icon"><?= htmlspecialchars($link['icon'] ?? '🔗', ENT_QUOTES, 'UTF-8') ?></div>
-                    <h4 class="link-title"><?= htmlspecialchars($link['title'], ENT_QUOTES, 'UTF-8') ?></h4>
-                    <p class="link-desc"><?= htmlspecialchars($link['desc'], ENT_QUOTES, 'UTF-8') ?></p>
-                </a>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>

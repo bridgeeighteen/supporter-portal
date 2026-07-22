@@ -40,8 +40,8 @@ body {
 }
 
 .site-brand img {
-    height: 40px;
-    width: auto;
+    max-width: 192px !important;
+    height: auto !important;
 }
 
 /* ========== 主体 ========== */
