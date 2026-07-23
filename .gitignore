@@ -3,6 +3,6 @@
 .git
 .vscode
 vendor
-logs/app.log
-logs/access.log
+logs/app-*.log
+logs/access-*.log
 composer.lock
