@@ -50,7 +50,7 @@ if (!Validator::validateUid($uidHex)) {
 }
 if (!Validator::validateType($type)) {
     Logger::app()->warning('非法的类型参数', ['type' => $type]);
-    $errorPage('参数错误', '不支持的卡片类型。请使用 NTAG21x 或 T1T 卡片。');
+    $errorPage('参数错误', '不支持的卡片类型。');
 }
 if (!Validator::validateFrom($from)) {
     Logger::app()->warning('非法的来源参数', ['from' => $from]);
@@ -97,7 +97,7 @@ $cardUrl = Config::siteUrl() . '/card.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正在跳转...</title>
+    <title>查询中</title>
     <style>
         body {
             display: flex;
@@ -116,7 +116,7 @@ $cardUrl = Config::siteUrl() . '/card.php';
             width: 40px;
             height: 40px;
             border: 3px solid #e0e0e0;
-            border-top-color: #1890ff;
+            border-top-color: #ed556a;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: 0 auto 1rem;
@@ -127,7 +127,7 @@ $cardUrl = Config::siteUrl() . '/card.php';
 <body>
 <div class="redirect-box">
     <div class="spinner"></div>
-    <p>正在查询卡片信息，请稍候...</p>
+    <p>正在查询信息，请稍候...<br>你的 IP 地址已被记录用于审计，十八桥社区不会向任何第三方分享这一信息。</p>
 </div>
 <form id="autoForm" method="POST" action="<?= htmlspecialchars($cardUrl, ENT_QUOTES, 'UTF-8') ?>">
     <input type="hidden" name="uid_decimal" value="<?= htmlspecialchars($uidDecimal, ENT_QUOTES, 'UTF-8') ?>">

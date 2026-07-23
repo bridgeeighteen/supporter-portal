@@ -25,7 +25,7 @@ $links = Config::get('links', []);
                         <span class="info-value"><?= htmlspecialchars($card['card_number'], ENT_QUOTES, 'UTF-8') ?></span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">证书编号</span>
+                        <span class="info-label">证明材料编号</span>
                         <span class="info-value"><?= htmlspecialchars($card['cert_number'] ?? '—', ENT_QUOTES, 'UTF-8') ?></span>
                     </div>
                     <div class="info-row">
@@ -52,7 +52,7 @@ $links = Config::get('links', []);
                 <h2 class="result-title">此支持者卡尚未登记</h2>
                 <p class="result-desc">
                     系统未找到此支持者卡的注册信息。<br>
-                    如需登记，请联系社区理事会或访问我们的支持页面。
+                    如需登记，请联系社区理事会。
                 </p>
             <?php endif; ?>
 
@@ -62,7 +62,7 @@ $links = Config::get('links', []);
         </div>
 
         <div class="links-section mt-5">
-            <h2 class="section-title">相关链接</h2>
+            <h2 class="section-title">更多链接</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-3">
                 <?php foreach ($links as $link): ?>
                 <div class="col">
