@@ -6,10 +6,10 @@
 -- 卡片主表
 CREATE TABLE IF NOT EXISTS `cards` (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `uid_decimal` VARCHAR(20) NOT NULL COMMENT '十进制UID（转码后）',
+    `uid_decimal` VARCHAR(20) NOT NULL COMMENT '十进制 UID（转码后）',
     `card_type` TINYINT UNSIGNED NOT NULL COMMENT '卡类型编号（2=NTAG21x, 8=T1T）',
-    `card_number` VARCHAR(20) NOT NULL COMMENT '登记卡号，如 BCSC0001',
-    `cert_number` VARCHAR(50) DEFAULT NULL COMMENT '证书编号，如 BCD-00001/A',
+    `card_number` VARCHAR(20) NOT NULL COMMENT '登记卡号',
+    `cert_number` VARCHAR(50) DEFAULT NULL COMMENT '证书编号',
     `holder_name` VARCHAR(100) NOT NULL COMMENT '持卡人姓名',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `cards` (
 -- 访问日志表
 CREATE TABLE IF NOT EXISTS `access_logs` (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `uid_hex` VARCHAR(50) NOT NULL COMMENT '原始十六进制UID',
+    `uid_hex` VARCHAR(50) NOT NULL COMMENT '原始十六进制 UID',
     `card_type` TINYINT UNSIGNED NOT NULL,
     `from_source` ENUM('inside', 'web') NOT NULL,
     `user_agent` VARCHAR(255) NOT NULL,
