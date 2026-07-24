@@ -73,14 +73,14 @@
 * MySQL / MariaDB
 * PHP 8.1 及以上
 * Nginx / Apache
-* NTAG21x 芯片 / 遵循 NFC Forum Tag Type 1 标准的支持者卡
+* 使用 NTAG21x 芯片 / 遵循 NFC Forum Tag Type 1 标准的支持者卡
 * ATNFC 系列卡片读写器（电脑网页读卡必需，可以在[淘宝](https://item.taobao.com/item.htm?id=1060203712046)购买）
 
 ### 正常安装（生产环境推荐）
 
 1. 创建一个全新的 MySQL / MariaDB 数据库，记住服务器地址（如果端口不一样还要记端口）、数据库名称、用户名及其密码。注意字符集应为 `utf8mb4_unicode_ci`。
 
-2. 通过 Composer 创建新项目。这里的 `my-new-project` 可以根据实际需要更换。在网站目录执行创建时，需要确保面板等自动生成的文件已经删除，否则会出错。
+2. 通过 Composer 创建新项目。这里的 `my-new-project` 可以根据实际需要更换。在网站目录执行创建时，需要确保由面板等自动生成的文件已经删除，否则会出错。
 
    ```shell
    composer create-project bridgeeighteen/supporter-portal my-new-project
