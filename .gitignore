@@ -3,6 +3,9 @@
 .git
 .vscode
 vendor
+public/assets/bootstrap-icons
+public/assets/css/bootstrap.*
+public/assets/js/bootstrap.*
 logs/app-*.log
 logs/access-*.log
 composer.lock

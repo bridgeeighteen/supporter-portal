@@ -25,9 +25,19 @@
         "vlucas/phpdotenv": "^5.5",
         "catfan/medoo": "^2.1",
         "monolog/monolog": "^3.0",
+        "twbs/bootstrap": "^5.3.3",
+        "twbs/bootstrap-icons": "^1.11.3",
         "ext-json": "*",
         "ext-curl": "*",
         "ext-mbstring": "*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php src/install-assets.php"
+        ],
+        "post-update-cmd": [
+            "@php src/install-assets.php"
+        ]
     },
     "autoload": {
         "psr-4": {
