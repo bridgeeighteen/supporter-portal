@@ -105,8 +105,9 @@ $cardUrl = Config::siteUrl() . '/card.php';
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f5f5f5;
+            font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            background: oklch(97% 0.008 40);
+            color: oklch(16% 0.012 35);
         }
         .redirect-box {
             text-align: center;
@@ -115,13 +116,17 @@ $cardUrl = Config::siteUrl() . '/card.php';
         .spinner {
             width: 40px;
             height: 40px;
-            border: 3px solid #e0e0e0;
+            border: 3px solid oklch(82% 0.010 40);
             border-top-color: #ed556a;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: 0 auto 1rem;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+        .redirect-box p {
+            color: oklch(36% 0.010 35);
+            line-height: 1.7;
+        }
     </style>
 </head>
 <body>

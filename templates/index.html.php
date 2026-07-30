@@ -18,7 +18,7 @@ $site_name = Config::get('site_name', []);
                 <i class="bi bi-nfc"></i> 网页读卡
             </button>
             <p id="serial-unsupported" class="serial-hint d-none">
-                这个浏览器不支持 Web Serial API，请在电脑上使用 Chrome / Edge 89 及以上、Firefox 151 及以上和 Opera 75 及以上。有些基于较新版本 Chromium 和 Gecko 内核的浏览器也可能支持。更多详情见 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility" target="_blank" rel="noopener">MDN 文档</a>。<br>拥有 NFC 功能的手机，可以直接打开 NFC 功能，然后按照支持者卡背面的说明操作。 
+                这个浏览器不支持 Web Serial API，请在电脑上使用 Chrome / Edge 89 及以上、Firefox 151 及以上和 Opera 75 及以上。有些基于较新版本 Chromium 和 Gecko 内核的浏览器也可能支持。更多详情见 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility" target="_blank" rel="noopener">MDN 文档</a>。<br>拥有 NFC 功能的手机，可以直接打开 NFC 功能，然后按照支持者卡背面的说明操作。
             </p>
         </div>
     </div>
@@ -51,4 +51,3 @@ $site_name = Config::get('site_name', []);
         </div>
     </div>
 </section>
-

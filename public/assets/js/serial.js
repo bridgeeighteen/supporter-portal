@@ -113,37 +113,13 @@ async function readCard() {
 function showToast(message, type) {
     type = type || 'info';
 
-    var bgColor = type === 'error' ? '#ed556a' : type === 'info' ? '#6c757d' : '#a70034';
-
     var toast = document.createElement('div');
-    toast.style.cssText = [
-        'position: fixed',
-        'top: 20px',
-        'left: 50%',
-        'transform: translateX(-50%)',
-        'background: ' + bgColor,
-        'color: #fff',
-        'padding: 0.75rem 1.5rem',
-        'border-radius: 2rem',
-        'font-size: 0.9rem',
-        'font-weight: 500',
-        'z-index: 9999',
-        'box-shadow: 0 4px 20px rgba(0,0,0,0.2)',
-        'opacity: 0',
-        'transition: opacity 0.3s ease',
-        'pointer-events: none',
-        'max-width: 90vw',
-        'text-align: center'
-    ].join(';');
+    toast.className = 'toast-becsp toast-becsp--' + (type === 'error' ? 'error' : type === 'info' ? 'info' : 'ok');
     toast.textContent = message;
     document.body.appendChild(toast);
 
-    requestAnimationFrame(function() {
-        toast.style.opacity = '1';
-    });
-
     setTimeout(function() {
-        toast.style.opacity = '0';
+        toast.classList.add('toast-becsp--out');
         setTimeout(function() {
             if (toast.parentNode) {
                 toast.parentNode.removeChild(toast);

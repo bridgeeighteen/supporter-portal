@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-30",
+  "fontStack": "system-sans (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif)",
+  "source": "style.css L24",
+  "palette": "custom properties: --primary #a70034, --primary-dark #8b002b, --secondary #ed556a, --bg-start #f8bbc3, --bg-end #ffffff",
+  "sourcePalette": "style.css L6-L12",
+  "motion": "motion-cut (no animation libraries)",
+  "spacing": "Bootstrap 5.3 grid defaults",
+  "framework": "PHP with Bootstrap 5.3.3 + Bootstrap Icons 1.11.3",
+  "designMd": false
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-07-30",
+    "scope": "app",
+    "genre": "playful",
+    "macrostructure": "Marquee Hero",
+    "variantPageTypes": { "home": "Marquee Hero", "card": "Stat-Led" },
+    "theme": "custom (vibe: warm-community · paper oklch(97% 0.008 40) · accent #a70034 warm-red · Satoshi + system CJK + Bricolage Grotesque wordmark)",
+    "nav": "N9 Edge-aligned minimal",
+    "footer": "Ft5 Statement",
+    "enrichment": "none (typography only)",
+    "brief": "十八桥社区支持者门户 · community supporter portal redesign · mood: community"
+  }
+]
